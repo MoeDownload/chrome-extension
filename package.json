@@ -36,5 +36,7 @@
     "webpack-stream": "^2.0.0",
     "yaml-loader": "^0.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^2.1.4"
+  }
 }

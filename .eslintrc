@@ -6,6 +6,7 @@ env:
 # Set to false to disallow override
 globals:
   chrome: false
+  $: false
 
 rules:
   eqeqeq:
