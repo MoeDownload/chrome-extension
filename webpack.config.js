@@ -40,9 +40,6 @@ module.exports = {
 		}
 		]
 	},
-	eslint: {
-		failOnError: true
-	},
 	resolve: {
 		extensions: ['', '.webpack.js', '.web.js', '.js', '.json'],
 		modulesDirectories: ['bower_components', 'node_modules']

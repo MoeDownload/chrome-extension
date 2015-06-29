@@ -17,6 +17,7 @@ gulp.task('webpack:dev', function () {
 	config.devtool = 'cheap-module-source-map';
 	config.debug = true;
 	config.watch = true;
+	config.output.pathinfo = true;
 
 	return gulp.src('index.js')
 	.pipe(gulpWebpack(config))
