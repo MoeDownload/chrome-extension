@@ -1,0 +1,21 @@
+{
+  "name": "MoeDownload",
+  "version": "0.0.1",
+  "description": "Chrome extension for downloading ACG pictures.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MoeDownload/chrome-extension.git"
+  },
+  "keywords": [
+    "chrome"
+  ],
+  "author": "Harry Cheng <i@reimu.moe> (http://eval.moe)",
+  "contributors": [
+    "Dave Lin <fxesms.fbk@gmail.com> (http://calc.moe)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MoeDownload/chrome-extension/issues"
+  },
+  "homepage": "https://github.com/MoeDownload/chrome-extension"
+}
