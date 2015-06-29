@@ -3,6 +3,6 @@ root = true
 [*]
 indent_style = tab
 
-[{package.json,.travis.yml}]
+[{package.json,*.yml,.eslintrc}]
 indent_style = space
 indent_size = 2
