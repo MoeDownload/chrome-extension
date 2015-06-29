@@ -28,9 +28,9 @@ module.exports = {
 			loader: 'css'
 		},
 		{
-      test: /\.json$/,
-      loader: 'json'
-    }
+			test: /\.json$/,
+			loader: 'json'
+		}
 		],
 		preLoaders: [
 		{
@@ -41,18 +41,16 @@ module.exports = {
 		]
 	},
 	eslint: {
-    failOnError: true
-  },
+		failOnError: true
+	},
 	resolve: {
 		extensions: ['', '.webpack.js', '.web.js', '.js', '.json'],
 		modulesDirectories: ['bower_components', 'node_modules']
 	},
 	plugins: [
 		new webpack.ResolverPlugin([
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', [
-        'main'
-      ])
-    ]),
+			new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
+		]),
 		new webpack.optimize.CommonsChunkPlugin('deps', 'deps.js')
 	]
 };
