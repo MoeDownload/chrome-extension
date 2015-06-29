@@ -17,9 +17,24 @@
   "bugs": {
     "url": "https://github.com/MoeDownload/chrome-extension/issues"
   },
+  "scripts": {
+    "dev": "gulp"
+  },
   "homepage": "https://github.com/MoeDownload/chrome-extension",
   "devDependencies": {
     "babel-eslint": "^3.1.19",
-    "eslint": "^0.24.0"
-  }
+    "babel-loader": "^5.2.2",
+    "css-loader": "^0.15.1",
+    "eslint": "^0.24.0",
+    "eslint-loader": "^0.14.1",
+    "file-loader": "^0.8.4",
+    "gulp": "^3.9.0",
+    "gulp-json-editor": "^2.2.1",
+    "gulp-yaml": "^0.2.4",
+    "json-loader": "^0.5.2",
+    "webpack": "^1.10.0",
+    "webpack-stream": "^2.0.0",
+    "yaml-loader": "^0.1.0"
+  },
+  "dependencies": {}
 }
