@@ -50,7 +50,8 @@ module.exports = {
 		]),
 		new webpack.optimize.CommonsChunkPlugin('deps', 'deps.js'),
 		new webpack.ProvidePlugin({
-			$: 'jquery'
+			$: 'jquery',
+			R: 'ramda'
 		})
 	]
 };
