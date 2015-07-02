@@ -39,5 +39,6 @@
   "dependencies": {
     "jquery": "^2.1.4",
     "ramda": "^0.15.1"
+    "rx": "^2.5.3",
   }
 }

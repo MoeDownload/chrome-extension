@@ -43,6 +43,7 @@ module.exports = {
 	resolve: {
 		extensions: ['', '.webpack.js', '.web.js', '.js', '.json'],
 		modulesDirectories: ['bower_components', 'node_modules']
+			rx: 'rx/dist/rx.all.js',
 	},
 	plugins: [
 		new webpack.ResolverPlugin([
