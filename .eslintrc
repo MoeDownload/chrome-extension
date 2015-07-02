@@ -8,6 +8,8 @@ globals:
   chrome: false
   $: false
   R: false
+  EventBus: false
+  __: false
 
 rules:
   eqeqeq:

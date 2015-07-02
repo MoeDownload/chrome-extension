@@ -2,5 +2,24 @@ name: __MSG_appName__
 manifest_version: 2
 version: 0.0.1
 default_locale: en
+permissions:
+  - storage
+  - '*://*.pixiv.net/*'
+  - webRequest
+  - webRequestBlocking
+  - downloads
+
+background:
+  scripts:
+    - deps.js
+    - server.js
+
+content_scripts:
+ - matches:
+   - '*://*.pixiv.net/*'
+   js:
+     - deps.js
+     - client.js
+   run_at: document_idle
 
 content_security_policy: script-src 'self' https://www.google-analytics.com; object-src 'self'

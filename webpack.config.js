@@ -59,7 +59,9 @@ module.exports = {
 		new webpack.optimize.CommonsChunkPlugin('deps', 'deps.js'),
 		new webpack.ProvidePlugin({
 			$: 'jquery',
-			R: 'ramda'
+			R: 'ramda',
+			EventBus: path.resolve('./src/utils/bus'),
+			__: path.resolve('./src/utils/i18n')
 		})
 	]
 };

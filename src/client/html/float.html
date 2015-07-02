@@ -1,0 +1,39 @@
+<div id="injected" v-class="expanded: expanded">
+	<div class="nav nav-blue">
+		<a class="nav-item nav-head">MoeDownload</a>
+		<a class="nav-item right" v-on="click: toggle">{{expanded ? '-' : '☰'}}</a>
+	</div>
+	<div id="body" class="pd-1" v-show="expanded">
+		<div class="msg msg-{{$value[0]}} mb-1" v-repeat="messages">
+			{{$value[1]}}
+		</div>
+		<section v-if="pages.length !== 0">
+			<button
+			class="button button-blue w-100p"
+			v-class="disabled: checkedCount === 0"
+			v-on="click: download">
+				Download ({{checkedCount}})
+			</button>
+			<table class="table mt-1">
+				<thead>
+					<tr>
+						<th v-if="isMulti">
+							<input type="checkbox" v-on="change: changeAll"/>
+						</th>
+						<th>#</th>
+						<th>Filename</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-repeat="pages" title="{{url}}" track-by="url">
+						<td v-if="isMulti">
+							<input type="checkbox" v-model="checked"/>
+						</td>
+						<td>{{$index + 1}}</td>
+						<td>{{filename}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</div>
+</div>
