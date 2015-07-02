@@ -30,6 +30,10 @@ module.exports = {
 		{
 			test: /\.json$/,
 			loader: 'json'
+		},
+		{
+			test: /\.less$/,
+			loader: 'css!less'
 		}
 		],
 		preLoaders: [

@@ -18,7 +18,8 @@
     "url": "https://github.com/MoeDownload/chrome-extension/issues"
   },
   "scripts": {
-    "dev": "gulp"
+    "dev": "gulp",
+    "install": "napa"
   },
   "homepage": "https://github.com/MoeDownload/chrome-extension",
   "devDependencies": {
@@ -32,6 +33,9 @@
     "gulp-json-editor": "^2.2.1",
     "gulp-yaml": "^0.2.4",
     "json-loader": "^0.5.2",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
+    "napa": "^1.2.0",
     "webpack": "^1.10.0",
     "webpack-stream": "^2.0.0",
     "yaml-loader": "^0.1.0"
@@ -40,5 +44,7 @@
     "jquery": "^2.1.4",
     "ramda": "^0.15.1"
     "rx": "^2.5.3",
+  "napa": {
+    "Kimochi.css": "Cosify/Kimochi.css"
   }
 }
