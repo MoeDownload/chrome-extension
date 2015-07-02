@@ -27,7 +27,7 @@ chrome.runtime.onMessage.addListener(function handleRequest(request, sender, sen
 		} else { // Rejected
 			sendResponse({
 				status: 'rejected',
-				reason: status.reason()
+				reason: status.reason().message
 			});
 		}
 	});

@@ -42,8 +42,11 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['', '.webpack.js', '.web.js', '.js', '.json'],
-		modulesDirectories: ['bower_components', 'node_modules']
+		modulesDirectories: ['bower_components', 'node_modules'],
+		alias: {
 			rx: 'rx/dist/rx.all.js',
+			mutils: path.resolve('./src/utils')
+		}
 	},
 	plugins: [
 		new webpack.ResolverPlugin([
