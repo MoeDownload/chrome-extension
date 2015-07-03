@@ -1,4 +1,4 @@
-var sites = (function() {
+var sites = (() => {
 	// Get all sites in ./sites using webpack's context.
 	var context = require.context('./sites', false, /[^_]\.js$/);
 	return context.keys().map(context);

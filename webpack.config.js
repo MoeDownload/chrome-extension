@@ -5,12 +5,12 @@ module.exports = {
 	entry: {
 		server: './src/server/index.js',
 		client: './src/client/index.js',
-		assets: './assets/index.js'
+		assets: './assets/index.js',
 	},
 	output: {
 		path: path.resolve('./build'),
 		filename: '[name].js',
-		publicPath: '/'
+		publicPath: '/',
 	},
 	module: {
 		loaders: [
@@ -20,48 +20,48 @@ module.exports = {
 			loader: 'babel',
 			query: {
 				optional: ['runtime'],
-				stage: 0
-			}
+				stage: 0,
+			},
 		},
 		{
 			test: /\.css$/,
-			loader: 'css'
+			loader: 'css',
 		},
 		{
 			test: /\.json$/,
-			loader: 'json'
+			loader: 'json',
 		},
 		{
 			test: /\.less$/,
-			loader: 'css!less'
-		}
+			loader: 'css!less',
+		},
 		],
 		preLoaders: [
 		{
 			test: /\.js$/,
 			loader: 'eslint',
-			exclude: /(node_modules|bower_components)/
-		}
-		]
+			exclude: /(node_modules|bower_components)/,
+		},
+		],
 	},
 	resolve: {
 		extensions: ['', '.webpack.js', '.web.js', '.js', '.json'],
 		modulesDirectories: ['bower_components', 'node_modules'],
 		alias: {
 			rx: 'rx/dist/rx.all.js',
-			mutils: path.resolve('./src/utils')
-		}
+			mutils: path.resolve('./src/utils'),
+		},
 	},
 	plugins: [
 		new webpack.ResolverPlugin([
-			new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
+			new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main']),
 		]),
 		new webpack.optimize.CommonsChunkPlugin('deps', 'deps.js'),
 		new webpack.ProvidePlugin({
 			$: 'jquery',
 			R: 'ramda',
 			EventBus: path.resolve('./src/utils/bus'),
-			__: path.resolve('./src/utils/i18n')
-		})
-	]
+			__: path.resolve('./src/utils/i18n'),
+		}),
+	],
 };

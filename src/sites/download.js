@@ -1,6 +1,6 @@
 import Rx from 'rx';
 import Client from 'mutils/rpc/client';
-module.exports = function (site) {
+module.exports = function execDownload(site) {
 	return Rx.Observable.create(function prepare(observer) {
 		if (!site.downloadEnabled) {
 			console.log('Download not supported, skipping..');
@@ -12,23 +12,23 @@ module.exports = function (site) {
 			function createFilenameObs(pages, info) {
 				var _pages;
 				require('mutils/config').ns(site.id, site.defaults)
-				.map(R.prop('template')).subscribe(function (template) {
+				.map(R.prop('template')).subscribe(template => {
 					_pages = require('mutils/filename')(pages, info, template);
 					observer.onNext(_pages);
 				});
 
-				EventBus.on('download', function (checkedPages) {
+				EventBus.on('download', function startDownload(checkedPages) {
 					if (checkedPages.length !== _pages.length) {
 						throw new Error('Page length mismatch');
 					}
 
 					// http://ramdajs.com/0.15/docs/#zip
 					checkedPages = R.zip(_pages, checkedPages)
-					.filter(p => p[1]).forEach(function ([{url, filename}]) {
+					.filter(p => p[1]).forEach(function callDownload([{url, filename}]) {
 						Client.call('download', {
 							url,
 							filename,
-							referer: document.location.toString()
+							referer: document.location.toString(),
 						});
 					});
 				});

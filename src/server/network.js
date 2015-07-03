@@ -1,4 +1,4 @@
-chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
+chrome.webRequest.onBeforeSendHeaders.addListener(function replaceHeader(details) {
 	var headers = details.requestHeaders.map(header => {
 		if (header.name !== 'X-Referer') {
 			return header;
@@ -7,9 +7,9 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 		return header;
 	});
 	return {
-		requestHeaders: headers
+		requestHeaders: headers,
 	};
 }, {
 	urls: ['<all_urls>'],
-	tabId: -1
+	tabId: -1,
 }, ['blocking', 'requestHeaders']);

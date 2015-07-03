@@ -10,7 +10,7 @@ var methods = {};
 exports.methods = methods;
 
 chrome.runtime.onMessage.addListener(function handleRequest(request, sender, sendResponse) {
-	new Promise(function (resolve, reject) {
+	new Promise(function processRequest(resolve, reject) {
 		if (request.method && methods[request.method]) {
 			resolve(Promise.try(methods[request.method], request.data));
 		} else {
@@ -18,16 +18,16 @@ chrome.runtime.onMessage.addListener(function handleRequest(request, sender, sen
 		}
 	})
 	.reflect()
-	.then(function (status) {
+	.then(function processResponse(status) {
 		if (status.isFulfilled()) {
 			sendResponse({
 				status: 'success',
-				value: status.value()
+				value: status.value(),
 			});
 		} else { // Rejected
 			sendResponse({
 				status: 'rejected',
-				reason: status.reason().message
+				reason: status.reason().message,
 			});
 		}
 	});
@@ -41,10 +41,10 @@ chrome.runtime.onMessage.addListener(function handleRequest(request, sender, sen
  */
 var clients = new Set();
 
-chrome.runtime.onConnect.addListener(function(port) {
+chrome.runtime.onConnect.addListener(function clientConnect(port) {
 	clients.add(port);
 
-	port.onDisconnect.addListener(function () {
+	port.onDisconnect.addListener(function clientDisconnect() {
 		clients.delete(port);
 	});
 });
@@ -55,7 +55,7 @@ chrome.runtime.onConnect.addListener(function(port) {
  * @param  {Any} data  External data
  */
 exports.broadcast = function broadcast(event, data) {
-	clients.forEach(function (client) {
+	clients.forEach(client => {
 		client.postMessage({event, data});
 	});
 };

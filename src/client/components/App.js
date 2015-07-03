@@ -6,7 +6,7 @@ var App = module.exports = new Vue({
 	require('raw!../html/float.html'),
 	data: {
 		expanded: false,
-		pages: []
+		pages: [],
 	},
 	methods: {
 		toggle() {
@@ -14,7 +14,7 @@ var App = module.exports = new Vue({
 		},
 		changeAll(event){
 			var checked = event.target.checked;
-			this.pages.forEach(function (page) {
+			this.pages.forEach(function updateCheck(page) {
 				page.checked = checked;
 			});
 		},
@@ -28,11 +28,11 @@ var App = module.exports = new Vue({
 			if (this.isMulti) {
 				this.changeAll({
 					target: {
-						checked: false
-					}
+						checked: false,
+					},
 				});
 			}
-		}
+		},
 	},
 	computed: {
 		messages(){
@@ -46,7 +46,7 @@ var App = module.exports = new Vue({
 		},
 		checkedCount(){
 			var count = 0;
-			this.pages.forEach(function (page) {
+			this.pages.forEach(function countPage(page) {
 				if (page.checked) {
 					count++;
 				}
@@ -55,8 +55,8 @@ var App = module.exports = new Vue({
 		},
 		isMulti(){
 			return this.pages.length > 1;
-		}
-	}
+		},
+	},
 });
 
 
@@ -68,8 +68,8 @@ var App = module.exports = new Vue({
 	document.body.appendChild(hostElement);
 }());
 
-require('../../sites/runner.js').pageObservable.subscribe(function (pages) {
-	pages = pages.map(function (page) {
+require('../../sites/runner.js').pageObservable.subscribe(function pushToPopup(pages) {
+	pages = pages.map(function setDefaultChecked(page) {
 		page.checked = true;
 		return page;
 	});

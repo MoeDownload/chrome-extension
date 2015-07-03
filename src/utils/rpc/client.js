@@ -20,7 +20,7 @@ module.exports = emitter;
  * @return {Promise}
  */
 emitter.call = function callRemote(method, data) {
-	return new Promise(function (resolve, reject) {
+	return new Promise(function request(resolve, reject) {
 		chrome.runtime.sendMessage({method, data}, function handleResponse(response) {
 			if (response.status === 'success') {
 				resolve(response.value);

@@ -16,8 +16,8 @@ server.methods.download = function download({url, filename, referer}) {
 		headers: [
 			{
 				name: 'X-Referer',
-				value: referer
-			}
-		]
+				value: referer,
+			},
+		],
 	});
 };

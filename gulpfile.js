@@ -11,7 +11,7 @@ gulp.task('webpack:dev', function () {
 	var config = Object.create(require('./webpack.config.js'));
 
 	config.plugins.push(new webpack.DefinePlugin({
-		DEBUG: true
+		DEBUG: true,
 	}));
 
 	config.devtool = 'cheap-module-source-map';
@@ -34,7 +34,7 @@ gulp.task('locale', function () {
 	/**
 	 * Transform to Chrome format
 	 */
-	.pipe(jeditor(function (inObj) {
+	.pipe(jeditor(function mapToChrome(inObj) {
 		var outObj = {};
 
 		for (var key in inObj) {

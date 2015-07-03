@@ -1,7 +1,7 @@
 module.exports = {
 	get defaults(){
 		return {
-			template: '?user_name? - ?title? (?id?@?user_id?)[?tags?]?[ ?page?P]?'
+			template: '?user_name? - ?title? (?id?@?user_id?)[?tags?]?[ ?page?P]?',
 		};
 	},
 	get enabled(){
@@ -102,5 +102,5 @@ module.exports = {
 		info.tools = $('.tools > li').map(extractText).get();
 
 		return info;
-	}
+	},
 };
