@@ -1,4 +1,5 @@
 import Rx from 'rx';
+import storage from './storage.js';
 var subject = new Rx.BehaviorSubject({});
 
 function toConfigObject(items) {
@@ -16,11 +17,12 @@ function toConfigObject(items) {
 	return ret;
 }
 
-chrome.storage.local.get(null, function setInitial(items = {}) {
+storage.get(null).then(function setInitial(items = {}) {
 	subject.onNext(toConfigObject(items));
 });
 
-chrome.storage.onChanged.addListener(function handleChange(changes) {
+
+storage.changes.subscribe(function mergeChanges(changes) {
 	changes = R.mapObj(change => change.newValue)(changes);
 	changes = toConfigObject(changes);
 
