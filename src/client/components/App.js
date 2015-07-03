@@ -24,14 +24,6 @@ var App = module.exports = new Vue({
 			}
 
 			EventBus.emit('download', this.pages.map(R.prop('checked')));
-
-			if (this.isMulti) {
-				this.changeAll({
-					target: {
-						checked: false,
-					},
-				});
-			}
 		},
 	},
 	computed: {
